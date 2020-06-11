@@ -48,7 +48,7 @@ namespace MVC5.Repository
             Item item = new Item();
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("SElect * from Items", con);
+                SqlCommand cmd = new SqlCommand($"SElect * from Items Where Id = {id}", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
