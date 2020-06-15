@@ -22,12 +22,13 @@ namespace MVC5.DAL.Repositories
 
             Items = new List<Item>()
             {
-                new Item { Id = 1, ObjectType = ItemType.Film, Description = "Film 01" },
+                new Item { Id = 1, ObjectType = ItemType.Serie, Description = "Fargo II" },
                 new Item { Id = 2, ObjectType = ItemType.Pdf, Description = "Cooking book" },
                 new Item { Id = 3, ObjectType = ItemType.Other, Description = "Keyboard" },
-                new Item { Id = 4, ObjectType = ItemType.Serie, Description = "Fargo" },
+                new Item { Id = 4, ObjectType = ItemType.Film, Description = "Film 01" },
                 new Item { Id = 5, ObjectType = ItemType.Film, Description = "New days" },
-                new Item { Id = 6, ObjectType = ItemType.Film, Description = "IN MEMORY" }
+                new Item { Id = 6, ObjectType = ItemType.Film, Description = "IN MEMORY" },
+                new Item { Id = 7, ObjectType = ItemType.Serie, Description = "Fargo I" }
             };
 
         }

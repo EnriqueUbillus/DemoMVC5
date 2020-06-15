@@ -18,6 +18,7 @@ namespace MVC5.DAL.Repositories
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["ItemContext"].ConnectionString;
 
+
         public IEnumerable<Item> GetItems()
         {
             List<Item> items = new List<Item>();

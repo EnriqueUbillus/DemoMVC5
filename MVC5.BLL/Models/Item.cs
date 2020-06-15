@@ -19,7 +19,7 @@ namespace MVC5.BLL.Models
         public string Description { get; set; }
 
         //[Required]
-        //public string Path { get; set; }
+        public string Path { get; set; }
 
         public ItemType ObjectType { get; set; }
 

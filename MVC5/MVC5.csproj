@@ -211,7 +211,7 @@
       <Project>{F561AD88-157D-4D78-895B-500388E8EC60}</Project>
       <Name>MVC5.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MVC5.Core\MVC5.DAL.csproj">
+    <ProjectReference Include="..\MVC5.DAL\MVC5.DAL.csproj">
       <Project>{83A3073A-8C66-4FDF-B33E-05DCE8D8ACE5}</Project>
       <Name>MVC5.DAL</Name>
     </ProjectReference>

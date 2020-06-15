@@ -101,7 +101,7 @@ namespace MVC5.Controllers
 
         // POST: Catalogue/Delete/5
         [HttpPost]
-        public ActionResult Delete(Item iitem, FormCollection collection)
+        public ActionResult Delete(Item iitem)
         {
             try
             {
