@@ -1,13 +1,8 @@
-﻿//using MVC5.DAL;
-using MVC5.Models;
-using MVC5.Repository;
-using System;
-using System.Collections.Generic;
+﻿using MVC5.BLL.Models;
+using MVC5.DAL.Repositories;
+using MVC5.DAL.Repositories.Interfaces;
 using System.Data;
-using System.Linq;
 using System.Net;
-using System.Runtime.CompilerServices;
-using System.Web;
 using System.Web.Mvc;
 //using Linq;
 
@@ -15,10 +10,12 @@ namespace MVC5.Controllers
 {
     public class ItemController : Controller
     {
-        //private readonly MockItem db = new MockItem();
 
-        private readonly IItemRepository db = new MockItem();
+        // It works
+        //private readonly IItemRepository db = new ItemRepositoryInMemoryData();
+        private readonly IItemRepository db = new ItemRepository();
 
+        
         // GET: Catalogue
         public ActionResult Index()
         {
@@ -26,7 +23,7 @@ namespace MVC5.Controllers
             return View(items);
         }
 
-        
+
         // GET: Catalogue/Details/5
         public ActionResult Details(int id)
         {
@@ -34,7 +31,7 @@ namespace MVC5.Controllers
             return View(item);
         }
 
-        
+
         // GET: Catalogue/Create
         public ActionResult Create()
         {
@@ -90,12 +87,12 @@ namespace MVC5.Controllers
         // GET: Catalogue/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null) 
+            if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var item = db.GetItemById(id);
 
-            if (item == null) 
+            if (item == null)
                 return HttpNotFound();
 
             return View(item);
@@ -120,7 +117,7 @@ namespace MVC5.Controllers
                     { "saveChangesError", true }
                 });
             }
-            
+
             return RedirectToAction("Index");
         }
 

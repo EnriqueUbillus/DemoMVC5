@@ -1,5 +1,7 @@
-﻿using Microsoft.Ajax.Utilities;
-using MVC5.Models;
+﻿//using Microsoft.Ajax.Utilities;
+using MVC5.DAL.Repositories.Interfaces;
+using MVC5.BLL.Models;
+using MVC5.BLL.Common;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,12 +10,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace MVC5.Repository
+namespace MVC5.DAL.Repositories
 {
-    public class MockItem : IItemRepository
+    public class ItemRepository : IItemRepository
     {
+        //private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["ItemContext"].ConnectionString;
 
-        private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["ItemContext"].ConnectionString;
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["ItemContext"].ConnectionString;
 
         public IEnumerable<Item> GetItems()
         {
@@ -24,7 +27,7 @@ namespace MVC5.Repository
                 //SqlCommand cmd = new SqlCommand("spGetItems", con);
                 //cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand("SElect * from Items", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Items", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -48,7 +51,7 @@ namespace MVC5.Repository
             Item item = new Item();
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand($"SElect * from Items Where Id = {id}", con);
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Items Where Id = {id}", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
